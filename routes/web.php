@@ -14,10 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('guest.welcome');
 });
 
 // ROTTE PER AUTENTICAZIONE
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// ROTTE AREA ADMIN
+// Route::get('/admin', 'HomeController@index')->name('home');
+
+Route::prefix('admin')
+    ->namespace('Admin')
+    ->middleware('auth')
+    ->name('admin.')
+    ->group(function() {
+        // Rotta home admin
+        Route::get('/', 'HomeController@index')->name('home');
+        // Rotte resource posts
+    });
