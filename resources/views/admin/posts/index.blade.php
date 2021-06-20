@@ -4,8 +4,9 @@
     <div class="container">
 
         <h1>OUR POSTS</h1>
+        <a class="btn btn-primary" href="{{ route('admin.posts.create') }}">Create new post</a>
 
-        <table class="table">
+        <table class="table mt-5">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -21,7 +22,9 @@
                         <td>
                             <a class="btn btn-success" href="{{ route('admin.posts.show', $post->id )}}">SHOW</a>
                         </td>
-                        <td>EDIT</td>
+                        <td>
+                            <a class="btn btn-warning" href="{{ route('admin.posts.edit', $post->id) }}">EDIT</a>
+                        </td>
                         <td>DELETE</td>
                     </tr>
                 @endforeach
