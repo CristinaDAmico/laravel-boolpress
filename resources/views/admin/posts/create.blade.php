@@ -38,6 +38,23 @@
                             <div class="feedback">YYY {{ $message }}</div>
                         @enderror
                     </div>
+
+                    <div class="mb-3">
+                        <label for="category_id">Category</label>
+                        <select class="form-control @error('category_id') is-invalid @enderror"
+                            name="category_id" id="category_id">
+                            <option value="">-- Select Category --</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}"
+                                    @if($category->id == old('category_id')) selected @endif>
+                                    {{ $category->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('category_id')
+                            <div class="feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
                  
                     <button class="btn btn-primary" type="submit">Create post</button>
                 </form>
