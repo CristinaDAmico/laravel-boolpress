@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use App\Post;
 use App\Category;
+use App\Tag;
 
 class PostController extends Controller
 {
@@ -32,8 +33,9 @@ class PostController extends Controller
     public function create()
     {   
         $categories = Category::all();
+        $tags = Tag::all();
 
-        return view('admin.posts.create', compact('categories'));
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -56,6 +58,7 @@ class PostController extends Controller
         ]);
 
         $data = $request->all();
+        dd($data);
 
         // gen slug
         $data['slug'] = Str::slug($data['title'], '-');
