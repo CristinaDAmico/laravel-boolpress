@@ -70,6 +70,9 @@
                                 </label>
                             </span>
                         @endforeach
+                        @error('tags')
+                            <div>{{ $message }}</div>
+                        @enderror
                     </div>
                  
                     <button class="btn btn-primary" type="submit">Create post</button>
