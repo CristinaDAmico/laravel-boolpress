@@ -17,6 +17,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Title</th>
+                    <th>Category</th>
                     <th colspan="3">Actions</th>
                 </tr>
             </thead>
@@ -25,6 +26,11 @@
                     <tr>
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
+                        <td>
+                            @if ($post->category)
+                                {{ $post->category->name }}
+                            @endif
+                        </td>
                         <td>
                             <a class="btn btn-success" href="{{ route('admin.posts.show', $post->id )}}">SHOW</a>
                         </td>
@@ -43,6 +49,20 @@
                 @endforeach
             </tbody>
         </table>
+
+        {{-- GET POSTS BY CATEGORY --}}
+        <h2>Post by Category</h2>
+        @foreach ($categories as $category)
+            <h3 class="mt-4">{{ $category->name }}</h3>
+
+            @forelse ($category->posts as $post)
+                <h4><a href="{{ route('admin.posts.show', $post->id)}}">{{ $post->title }}</a></h4>
+            @empty
+                No posts for this category!
+                <a href="{{ route('admin.posts.create')}}">Create a new post!</a>
+            @endforelse
+
+        @endforeach
 
     </div>  
 @endsection
