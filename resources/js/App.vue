@@ -3,9 +3,9 @@
         <Header />
 
         <main>
-            <h1>Welcome to public home</h1>
-
-            <p>work in progress</p>
+            <div class="container">
+                <h1>Blog</h1>
+            </div> 
         </main>
     </div>
 </template>
@@ -22,7 +22,10 @@ export default {
 </script>
 
 <style lang="scss">
-    body {
-        font-family: sans-serif;
-    }
+@import '../sass/frontoffice/_utilities.scss';
+
+body {
+    font-family: sans-serif;
+}
+
 </style>

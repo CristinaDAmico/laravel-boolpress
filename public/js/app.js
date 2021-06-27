@@ -159,7 +159,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "body {\n  font-family: sans-serif;\n}", ""]);
+exports.push([module.i, ".container {\n  max-width: 1170px;\n  margin: 0 auto;\n}\nbody {\n  font-family: sans-serif;\n}", ""]);
 
 // exports
 
@@ -1283,9 +1283,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("main", [
-      _c("h1", [_vm._v("Welcome to public home")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("work in progress")])
+      _c("div", { staticClass: "container" }, [_c("h1", [_vm._v("Blog")])])
     ])
   }
 ]
